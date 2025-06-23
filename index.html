@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VelzHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #ff003c;
+      --accent: #ffd700;
+      --bg-dark: #0a0a0a;
+      --bg-darker: #050505;
+      --text-light: #ddd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    section {
+      width: 100%;
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      animation: flicker 3s infinite;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 900px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .hero {
+      background: radial-gradient(ellipse at center, #111 0%, #000 100%);
+    }
+
+    .about {
+      background: linear-gradient(to bottom, #0a0a0a, #050505);
+    }
+
+    .simulator {
+      background: linear-gradient(to bottom, #050505, #000);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .button {
+      background-color: transparent;
+      border: 2px solid var(--accent);
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      color: var(--accent);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      margin-top: 20px;
+      border-radius: 6px;
+      user-select: none;
+    }
+
+    .button:hover {
+      background-color: var(--accent);
+      color: #000;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 10px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      border: 2px solid var(--accent);
+      background: #111;
+      color: var(--text-light);
+      margin: 8px 0;
+      width: 250px;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border-color: var(--primary);
+    }
+
+    #qrCode {
+      margin-top: 20px;
+      background: white;
+      border-radius: 8px;
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+    }
+
+    #message {
+      margin-top: 12px;
+      font-size: 1rem;
+      color: var(--accent);
+      min-height: 24px;
+      font-weight: 600;
+    }
+
+    @keyframes flicker {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      10% {
+        opacity: 0.85;
+      }
+      25% {
+        opacity: 0.5;
+      }
+      40% {
+        opacity: 0.95;
+      }
+      55% {
+        opacity: 0.6;
+      }
+      70% {
+        opacity: 0.9;
+      }
+      85% {
+        opacity: 0.65;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="number"] {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Úvodní přistávací sekce -->
+  <section id="landing" class="hero">
+    <h1>VelzHub</h1>
+    <div class="subtitle">powered by Velzcoin</div>
+    <button class="button" onclick="showMainContent()">Chci vědět více</button>
+  </section>
+
+  <!-- Skrytý hlavní obsah -->
+  <div id="main-content" class="hidden">
+    <section class="hero">
+      <h1>VelzHub</h1>
+      <div class="subtitle">powered by Velzcoin</div>
+      <p>
+        VelzHub je moderní vzdělávací platforma ve vývoji, zaměřená na kryptoměny.
+        Kryptoměny jsou všude kolem nás a počet jejich praktických využití stále stoupá.
+        Co byla dříve záliba uzavřených skupin IT nadšenců a libertariánů, jsou dnes široce
+        využitelné měny, jejichž výhody nelze státní měnou replikovat. Většina populace
+        kryptoměnám moc nerozumí a možnost platit jimi na denním pořádku berou stále jako nesplnitelnou představu.
+        Využívání moderních peněženek je ve skutečnosti velice jednoduché, o tom se můžete přesvědčit sami v našem simulátoru peněženky.
+      </p>
+    </section>
+
+    <section class="about">
+      <h2>K čemu lze kryptoměny využít?</h2>
+      <p>
+        Kryptoměny lze dnes využít v mnoha oblastech a už dávno nefungují jen jako investice, či možnost anonymní platby.
+        Mnoho českých i zahraničních internetových obchodů dnes přijímá platby určitými kryptoměnami.
+        Desítky až stovky českých kamenných prodejen různého typu přijímají platbu kryptoměnami i na pobočce.
+      </p>
+      <p>
+        Díky službě Querko, která slouží převážně restauracím k možnosti platby pomocí zákazníkům na stole přístupným QR kódem,
+        kryptoměny přijímá i nespočet restaurací. Součástí aplikace je totiž také možnost platit kryptoměnami.
+      </p>
+    </section>
+
+    <section class="simulator">
+      <h2>Simulace peněženky</h2>
+      <p>
+        Vyzkoušejte si, jak funguje peněženka s kryptoměnou Velzcoin bez rizika.
+        Funkčnost posílání a přijímání peněz funguje v simulaci velice podobně, jako u reálných peněženek.
+      </p>
+      <button class="button" onclick="showWallet()">Otevřít simulátor</button>
+    </section>
+  </div>
+
+  <!-- Simulační peněženka - finální stránka -->
+  <div id="wallet" class="hidden" style="padding:40px; min-height:100vh; display:flex; flex-direction:column; align-items:center; background: linear-gradient(to bottom, #111, #000); color: var(--text-light);">
+    <h1 style="color: var(--primary); animation: flicker 3s infinite;">Simulátor Velzcoin peněženky</h1>
+    <div style="max-width: 400px; width: 100%; margin-top: 20px; text-align: left;">
+      <p><strong>Aktuální zůstatek:</strong> <span id="balance">100</span> Velzcoinů</p>
+      <hr style="border-color: var(--accent);" />
+      <h2 style="color: var(--accent); margin-top: 20px;">Odeslat Velzcoin</h2>
+      <label for="sendKey">Zadejte klíč peněženky příjemce:</label><br />
+      <input type="text" id="sendKey" placeholder="Klíč peněženky" autocomplete="off" /><br />
+      <label for="sendAmount">Částka k odeslání:</label><br />
+      <input type="number" id="sendAmount" min="0" step="0.01" placeholder="0.00" /><br />
+      <button class="button" onclick="sendCoins()">Odeslat</button>
+      <div id="sendMessage" style="margin-top: 12px; min-height: 20px; color: #ff6666;"></div>
+
+      <hr style="border-color: var(--accent);" />
+
+      <h2 style="color: var(--accent); margin-top: 20px;">Přijmout Velzcoin</h2>
+      <button class="button" onclick="generateReceive()">Vygenerovat klíč a QR kód</button>
+      <p style="margin-top: 10px;">Váš klíč příjmu:</p>
+      <input type="text" id="receiveKey" readonly style="background:#222; color:#fff; border: 2px solid var(--accent); padding:8px; width: 100%; border-radius: 6px; text-align:center; font-family: monospace; font-weight: 700;"/>
+      <div id="qrCode"></div>
+    </div>
+  </div>
+
+  <!-- QRCode.js knihovna -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    function showMainContent() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('main-content').classList.remove('hidden');
+    }
+    function showWallet() {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('wallet').classList.remove('hidden');
+      // Posunout scroll na začátek simulátoru
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    let balance = 100;
+
+    function sendCoins() {
+      const key = document.getElementById('sendKey').value.trim();
+      const amountInput = document.getElementById('sendAmount');
+      const amount = parseFloat(amountInput.value);
+      const message = document.getElementById('sendMessage');
+
+      message.style.color = '#ff6666';
+      message.textContent = '';
+
+      if (!key) {
+        message.textContent = 'Zadejte klíč peněženky příjemce.';
+        return;
+      }
+      if (isNaN(amount) || amount <= 0) {
+        message.textContent = 'Zadejte platnou částku k odeslání.';
+        return;
+      }
+      if (amount > balance) {
+        message.textContent = 'Nedostatečný zůstatek.';
+        return;
+      }
+
+      balance -= amount;
+      document.getElementById('balance').textContent = balance.toFixed(2);
+      message.style.color = '#00cc66';
+      message.textContent = `Úspěšně odesláno ${amount.toFixed(2)} Velzcoinů na klíč ${key}.`;
+
+      document.getElementById('sendKey').value = '';
+      amountInput.value = '';
+    }
+
+    let qr;
+
+    function generateReceive() {
+      // Vygenerujeme náhodný klíč (hex 16 znaků)
+      const key = Array.from({ length: 16 }, () =>
+        Math.floor(Math.random() * 16).toString(16)
+      ).join('');
+      const receiveKeyInput = document.getElementById('receiveKey');
+      receiveKeyInput.value = key;
+
+      // Generování QR kódu
+      const qrContainer = document.getElementById('qrCode');
+      qrContainer.innerHTML = ''; // vyčistit předchozí QR
+
+      qr = new QRCode(qrContainer, {
+        text: key,
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  </script>
+</body>
+</html>
